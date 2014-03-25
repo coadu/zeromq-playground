@@ -1,3 +1,4 @@
+sudo docker pull stackbrew/ubuntu:13.10
 sudo docker pull crosbymichael/skydns
 sudo docker pull crosbymichael/skydock
 sudo docker run -d -p 172.17.42.1:53:53/udp --name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain docker
