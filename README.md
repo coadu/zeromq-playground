@@ -86,6 +86,11 @@ I have found that there pyzmq is not tolerant to the use of hostnames that do no
 In the BStar example, the primary and backup need to know about each other at startup time, I have hacked the example for it to retry connection to the other node indefinetely. I am sure there are better solutions, but that is something to work on.
 
 
+Working on your own code
+------------------------
+Simply place your source files inside the `app` folder on your host, and you can access it from vagrant, in `/home/vagrant/app` and in containers from `/app` (you can change this by means of the `-v` option to docker run)
+
+
 Other clients
 -------------
 Currently I have published a docker container with Python ØMQ bindings, but you can easily build others with your [prefered language bindings](http://zeromq.org/bindings:_start).
@@ -105,7 +110,7 @@ To run your new container, look in pyzmq.sh for an example, or lookup the [docke
 
 ToDo's and Issues:
 ------------------
-* Add instructions for running your own code
+* Find nice way to handle the problem of pyzmq failing for dns not yet registered
 
 If you find (and fix?) issues please report them on [github](https://github.com/madscoaducom/zeromq-playground)
 
