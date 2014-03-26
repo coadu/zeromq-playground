@@ -74,7 +74,7 @@ If you find (and fix?) issues please report them on [github](https://github.com/
 
 References
 ---------
-This setup is possible because of these great projects:
+This setup is possible because of these great projects and services:
 * [Docker](http://docker.io)
 * [Vagrant](http://www.vagrantup.com) and [Vagrant Cloud](http://www.vagrantcloud.com)
 * [Ge.tt](http://ge.tt)
