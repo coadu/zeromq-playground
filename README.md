@@ -30,21 +30,53 @@ Run
 ---
 Here are instructions for running the [ØMQ zguide](http://zguide.zeromq.org/) Hellow World example in Python. The source to zguide examples are included on the image, look in "zguide/examples".
 
-Open a terminal and run:
+*NOTE* that the standard examples are written for a singlehost setup, so some tweaking is needed for them to work here.
+
+I have tweaked to examples and included them in the app folder including run scripts.
+
+For below examples when it says "Open a terminal and run", you should start with:
+
 ```
 vagrant ssh
-/vagrant/pyzmq.sh z1
-python hwserver.py
+cd app
+```
+
+### Hello World
+
+Open a terminal and run:
+```
+./hwserver.sh
 ```
 
 Open another terminal:
 ```
-vagrant ssh
-/vagrant/pyzmq.sh z2
-sed -i 's/localhost:5555/z1.pyzmq.dev.docker/'
-python hwclient.py
+./hwclient.sh
 ```
 You should see the server and client talking.
+
+
+### BStar
+Open a terminal and run:
+```
+./bstarprimary.sh
+```
+
+Open another terminal:
+```
+./bstarbackup.sh
+```
+
+Open a third terminal:
+```
+./bstarcli.sh
+```
+
+Now the primary and backup are connected, and the client connected to the primary. 
+
+If you kill the primary:
+    sudo docker kill primary
+
+You should see the client switching to use the backup.
 
 Learn more about the fun things you can do with [Skydoc](https://github.com/crosbymichael/skydock) and [Skydns](https://github.com/skynetservices/skydns)
 
