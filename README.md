@@ -30,11 +30,11 @@ Run
 ---
 Here are instructions for running the [ØMQ zguide](http://zguide.zeromq.org/) Hellow World example in Python. The source to zguide examples are included on the image, look in "zguide/examples".
 
-*NOTE* that the standard examples are written for a singlehost setup, so some tweaking is needed for them to work here.
+**NOTE** that the standard examples are written for a singlehost setup, so some tweaking is needed for them to work here.
 
-I have tweaked to examples and included them in the app folder including run scripts.
+I have tweaked two of the examples and included the code in the app folder including run scripts.
 
-For below examples when it says "Open a terminal and run", you should start with:
+For below examples when it says "Open a terminal and run", it expects you to be inside vagrant image in app folder:
 
 ```
 vagrant ssh
