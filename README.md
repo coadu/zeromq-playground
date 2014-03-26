@@ -41,7 +41,7 @@ vagrant ssh
 cd app
 ```
 
-### Hello World
+#### Hello World
 
 Open a terminal and run:
 ```
@@ -55,7 +55,7 @@ Open another terminal:
 You should see the server and client talking.
 
 
-### BStar
+#### BStar
 Open a terminal and run:
 ```
 ./bstarprimary.sh
@@ -74,7 +74,9 @@ Open a third terminal:
 Now the primary and backup are connected, and the client connected to the primary. 
 
 If you kill the primary:
+```
     sudo docker kill primary
+```
 
 You should see the client switching to use the backup.
 
