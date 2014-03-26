@@ -5,10 +5,10 @@ This is a playground setup that I put together in preparation for attending [Zer
 
 It is a vagrant box with docker installed and some docker containers for running [ØMQ](http://zeromq.org/).
 
-In addition the box includes containers and configuration for using Skydns and Skydoc, for DNS based service discovery, allowing each container to find each other via names instead of ip addresses.
+The box also includes containers and configuration for using Skydns and Skydoc (DNS based service discovery for docker) allowing containers to reference each other by dns name instead of ip address.
 
 Install
-=======
+-------
 To use this setup you need to install:
 
 * [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
@@ -17,18 +17,18 @@ To use this setup you need to install:
 I am using this setup on Linux, but it should work on Mac and Windows as well.
 
 Get
-===
-Clone this repository and start get the box:
+---
+Clone this repository and start the box:
 ```
 git clone https://github.com/madscoaducom/zeromq-playground
 cd zeromq-playground
 vagrant up
-(time for coffee)
+# time for coffee
 ```
 
 Run
-===
-Here are instructions for running the [ØMQ zguide](http://zguide.zeromq.org/) Hellow World example in Python. The source to zguide examples are included on the image, look in "zguide/examples"
+---
+Here are instructions for running the [ØMQ zguide](http://zguide.zeromq.org/) Hellow World example in Python. The source to zguide examples are included on the image, look in "zguide/examples".
 
 Open a terminal and run:
 ```
@@ -49,7 +49,7 @@ You should see the server and client talking.
 Learn more about the fun things you can do with [Skydoc](https://github.com/crosbymichael/skydock) and [Skydns](https://github.com/skynetservices/skydns)
 
 Other clients
-=============
+-------------
 Currently I have published a docker container with Python ØMQ bindings, but you can easily build others with your [prefered language bindings](http://zeromq.org/bindings:_start).
 
 Simply:
@@ -66,11 +66,14 @@ docker build --rm=true -t <name of conainer> .
 To run your new container, look in pyzmq.sh for an example, or lookup the [docker run](http://docs.docker.io/en/latest/reference/commandline/cli/#run) docs.
 
 ToDo's and Issues:
-==================
+------------------
+* Add instructions for running your own code
+
+If you find (and fix?) issues please report them on [github](https://github.com/madscoaducom/zeromq-playground)
 
 
 References
-=========
+---------
 This setup is possible because of these great projects:
 * [Docker](http://docker.io)
 * [Vagrant](http://www.vagrantup.com) and [Vagrant Cloud](http://www.vagrantcloud.com)
@@ -78,5 +81,3 @@ This setup is possible because of these great projects:
 * [Skydns](https://github.com/skynetservices/skydns)
 * [Skydoc](https://github.com/crosbymichael/skydock)
 Check them out!
-    
-
