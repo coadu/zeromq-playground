@@ -80,7 +80,11 @@ If you kill the primary:
 
 You should see the client switching to use the backup.
 
-Learn more about the fun things you can do with [Skydoc](https://github.com/crosbymichael/skydock) and [Skydns](https://github.com/skynetservices/skydns)
+#### Tweaking notes
+I have found that there pyzmq is not tolerant to the use of hostnames that do not resolve, and skydock only adds entries to the skydns when a container starts. The idea behind using skydns/skydock is that docker does not currently support assigning IP's to containers.
+
+In the BStar example, the primary and backup need to know about each other at startup time, I have hacked the example for it to retry connection to the other node indefinetely. I am sure there are better solutions, but that is something to work on.
+
 
 Other clients
 -------------
