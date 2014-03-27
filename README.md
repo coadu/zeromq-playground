@@ -49,7 +49,7 @@ vagrant ssh
 /vagrant/setup-skydock.sh
 ```
 
-Here are instructions for running the [ØMQ zguide](http://zguide.zeromq.org/) Hellow World example in Python. The source to zguide examples are included on the image, look in "zguide/examples".
+Here are instructions for running the [ØMQ zguide](http://zguide.zeromq.org/) Hello World example in Python. The source to zguide examples are included on the image, look in "zguide/examples".
 
 **NOTE** that the standard examples are written for a singlehost setup, so some tweaking is needed for them to work here.
 
@@ -102,7 +102,7 @@ sudo docker kill primary
 You should see the client switching to use the backup.
 
 #### Tweaking notes
-I have found that there pyzmq is not tolerant to the use of hostnames that do not resolve, and skydock only adds entries to the skydns when a container starts. The idea behind using skydns/skydock is that docker does not currently support assigning IP's to containers.
+When using hostnames in code they have to resolve at time of bind(), but skydock only adds entries to the skydns when a container starts. So the code has to be tolerant and wait to bind() untill necesary parts are running (Note that currently docker does not support assigning IP's to containers).
 
 In the BStar example, the primary and backup need to know about each other at startup time, I have hacked the example for it to retry connection to the other node indefinetely. I am sure there are better solutions, but that is something to work on.
 
@@ -131,7 +131,7 @@ To run your new container, look in pyzmq.sh for an example, or lookup the [docke
 
 ToDo's and Issues:
 ------------------
-* Find nice way to handle the problem of pyzmq failing for dns not yet registered
+* Have fun with ZMQ
 
 If you find (and fix?) issues please report them on [github](https://github.com/madscoaducom/zeromq-playground)
 
