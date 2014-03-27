@@ -18,11 +18,7 @@ end
 
 $script = <<SCRIPT
   git clone --depth=1 git://github.com/imatix/zguide.git /home/vagrant/zguide
-  sudo docker pull crosbymichael/skydns
-  sudo docker pull crosbymichael/skydock
   sudo docker pull coadu/zeromq
   sudo docker pull coadu/pyzmq
-  sudo docker run -d -p 172.17.42.1:53:53/udp --name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain docker
-  sudo docker run -d -v /var/run/docker.sock:/docker.sock --name skydock --link=skydns:skydns crosbymichael/skydock -ttl 30 -environment dev -s /docker.sock -domain dockerR
 SCRIPT
 

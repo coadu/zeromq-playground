@@ -7,6 +7,7 @@ RUN apt-get update -y
 RUN apt-get install -y --force-yes tar git curl nano wget dialog net-tools build-essential
 RUN apt-get install -y --force-yes vim emacs
 
+# TODO: add libsodium to this image
 RUN apt-get install -y --force-yes uuid-dev
 RUN cd /root && wget http://download.zeromq.org/zeromq-4.0.4.tar.gz
 RUN cd /root && tar xzvf zeromq-4.0.4.tar.gz

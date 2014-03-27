@@ -1,10 +1,25 @@
 #!/bin/bash
 
-# Patch to docker 0.9.0
-sudo wget -O /etc/init/docker.conf https://raw.github.com/dotcloud/docker/master/contrib/init/upstart/docker.conf
+apt-get install -y --force-yes git curl wget net-tools build-essential
+apt-get install -y --force-yes vim emacs
 
-# Prepare for skydns dns server
-egrep -q "^DOCKER_OPTS=\"-dns" /etc/default/docker || sudo sed -i '/#DOCKER_OPTS/ aDOCKER_OPTS=\"-dns 172.17.42.1\"' /etc/default/docker
+apt-get install -y --force-yes uuid-dev
 
-sudo service docker restart
-sleep 5
+workdir=/home/vagrant/tmp
+mkdir -p $work
+
+cd $work
+wget https://download.libsodium.org/libsodium/releases/libsodium-0.4.5.tar.gz
+wget https://download.libsodium.org/libsodium/releases/libsodium-0.4.5.tar.gz.sig
+# TODO: Can't get this to work, dig +dnssec +short txt <file>.download.libsodium.org, see https://github.com/jedisct1/libsodium#installation
+tar xzvf libsodium-0.4.5.tar.gz
+cd libsodium-0.4.5
+./configure && make && make check && make install
+
+cd $work
+wget http://download.zeromq.org/zeromq-4.0.4.tar.gz
+tar xzvf zeromq-4.0.4.tar.gz
+cd zeromq-4.0.4
+./configure && make && make install
+
+rm -rf $work
