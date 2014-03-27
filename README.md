@@ -41,7 +41,7 @@ vagrant ssh
 cd app
 ```
 
-#### Hello World
+#### [Hello World](http://zguide.zeromq.org/page:all#Ask-and-Ye-Shall-Receive)
 
 Open a terminal and run:
 ```
@@ -55,7 +55,7 @@ Open another terminal:
 You should see the server and client talking.
 
 
-#### BStar
+#### [BStar](http://zguide.zeromq.org/page:all#Binary-Star-Implementation)
 Open a terminal and run:
 ```
 ./bstarprimary.sh
