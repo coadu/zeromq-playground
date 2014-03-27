@@ -62,7 +62,7 @@ vagrant ssh
 cd app
 ```
 
-#### Hello World
+#### [Hello World](http://zguide.zeromq.org/page:all#Ask-and-Ye-Shall-Receive)
 
 Open a terminal and run:
 ```
@@ -76,7 +76,7 @@ Open another terminal:
 You should see the server and client talking.
 
 
-#### BStar
+#### [BStar](http://zguide.zeromq.org/page:all#Binary-Star-Implementation)
 Open a terminal and run:
 ```
 ./bstarprimary.sh
@@ -101,7 +101,16 @@ sudo docker kill primary
 
 You should see the client switching to use the backup.
 
-Learn more about the fun things you can do with [Skydoc](https://github.com/crosbymichael/skydock) and [Skydns](https://github.com/skynetservices/skydns)
+#### Tweaking notes
+I have found that there pyzmq is not tolerant to the use of hostnames that do not resolve, and skydock only adds entries to the skydns when a container starts. The idea behind using skydns/skydock is that docker does not currently support assigning IP's to containers.
+
+In the BStar example, the primary and backup need to know about each other at startup time, I have hacked the example for it to retry connection to the other node indefinetely. I am sure there are better solutions, but that is something to work on.
+
+
+Working on your own code
+------------------------
+Simply place your source files inside the `app` folder on your host, and you can access it from vagrant, in `/home/vagrant/app` and in containers from `/app` (you can change this by means of the `-v` option to docker run)
+
 
 Other clients
 -------------
@@ -122,7 +131,7 @@ To run your new container, look in pyzmq.sh for an example, or lookup the [docke
 
 ToDo's and Issues:
 ------------------
-* Add instructions for running your own code
+* Find nice way to handle the problem of pyzmq failing for dns not yet registered
 
 If you find (and fix?) issues please report them on [github](https://github.com/madscoaducom/zeromq-playground)
 
