@@ -32,6 +32,7 @@ Clone this repository and start the box:
 ```
 git clone https://github.com/madscoaducom/zeromq-playground
 cd zeromq-playground
+vagrant box add coadu/zeromq-playground
 vagrant up
 # time for coffee
 ```
